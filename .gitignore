@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # Secret Key
-.secret_ket.txt
+secret_ket.txt
 
 .DS_Store
