@@ -130,3 +130,5 @@ dmypy.json
 
 # Secret Key
 .secret_ket.txt
+
+.DS_Store
