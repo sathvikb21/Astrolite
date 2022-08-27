@@ -128,6 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
 # Secret Key
-secret_ket.txt
+.secret_ket.txt
