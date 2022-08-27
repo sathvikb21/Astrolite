@@ -128,7 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Secret Key
-secret_ket.txt
-
 .DS_Store
