@@ -7,6 +7,7 @@ class Event(models.Model):
     date = models.DateTimeField()
     location = models.CharField(max_length=255)
     description = models.TextField()
+    distance = models.IntegerField()
 
 
 class Ticket(models.Model):

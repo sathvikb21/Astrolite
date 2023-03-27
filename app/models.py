@@ -7,3 +7,4 @@ class UserDetail(models.Model):
     upcoming_trips = models.IntegerField(default=0)
     total_distance = models.IntegerField(default=0)
     total_cost = models.IntegerField(default=0)
+    total_orders = models.IntegerField(default=0)
