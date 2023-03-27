@@ -29,8 +29,9 @@ def dashboard(request):
 
 def ticketpage(request):
     tickets = Ticket.objects.all()
+    user = UserDetail.objects.get(username=request.user.username)
 
-    return render(request, 'tickets.html', {'tickets': tickets})
+    return render(request, 'tickets.html', {'tickets': tickets, 'total_orders': user.total_orders})
 
 
 def buy_ticket(request, ticket_id):
@@ -62,18 +63,23 @@ def buy_ticket(request, ticket_id):
         user.save()
 
         return redirect('order_detail', order_id=order.id)
-    return render(request, 'buy.html', {'ticket': ticket})
+    return render(request, 'buy.html', {'ticket': ticket, 'total_orders': user.total_orders})
 
 
 def order_detail(request, order_id):
     order = Order.objects.get(pk=order_id)
-    return render(request, 'order_detail.html', {'order': order})
+    user = UserDetail.objects.get(username=request.user.username)
+
+    return render(request, 'order_detail.html', {'order': order, 'total_orders': user.total_orders})
 
 
 def order(request):
     orders = Order.objects.all()
-    return render(request, 'order.html', {'orders': orders})
+    user = UserDetail.objects.get(username=request.user.username)
+    return render(request, 'order.html', {'orders': orders, 'total_orders': user.total_orders})
 
 
 def settings(request):
-    return render(request, 'settings.html')
+    user = UserDetail.objects.get(username=request.user.username)
+
+    return render(request, 'settings.html', {'total_orders': user.total_orders})
