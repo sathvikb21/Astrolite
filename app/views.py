@@ -55,6 +55,10 @@ def signuppage(request):
         return render(request, 'signup.html')
 
 
+def aboutpage(request):
+    return render(request, 'about.html')
+def contactpage(request):
+    return render(request, 'contact.html')
 def logoutpage(request):
     logout(request)
     return redirect('home')
