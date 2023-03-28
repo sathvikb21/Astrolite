@@ -180,24 +180,32 @@
             </div>
           </nav>
         </div>
-        <div class="mx-auto lg:ml-80">
-          <div>
-            <h1>{{ ticket.name }}</h1>
-            <p>{{ ticket.description }}</p>
-            <p>Price: {{ ticket.price }}</p>
+        <div class="mx-auto lg:ml-80 flex justify-center items-center h-screen">
+          <div class="flex h-1/2 w-1/2 flex-col justify-center items-center bg-gray-500 rounded-xl ">
+            <h1 class="text-white text-4xl mb-8 text-center">{{ ticket.name }}</h1>
+            <p class="text-white text-md mb-6 text-center">{{ ticket.description }}</p>
+            <p class="text-white text-md mb-6 text-center">Price: ${{ ticket.price }}</p>
             <form method="post">
               {% csrf_token %}
-              <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="1"
-                  max="{{ ticket.quantity }}"
-                  required
-                />
+              <div class="form-group flex flex-col items-center">
+                <div class="flex flex-row">
+                  <label class="text-white text-md mb-6 text-center" for="quantity">Quantity:</label>
+                  <input class="block w-full outline-none bg-gray-800 text-xl text-gray-100 font-medium rounded-lg"
+                    type="number"
+                    name="quantity"
+                    min="1"
+                    max="{{ ticket.quantity }}"
+                    
+                    required
+                  />
+                </div>
+               
+                <div>
+                  <button type="submit" class=" text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy</button>
+                </div>
+               
               </div>
-              <button type="submit" class="btn btn-primary">Buy</button>
+             
             </form>
           </div>
         </div>

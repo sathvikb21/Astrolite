@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Page title</title>
+    <title>Order Details</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -180,14 +180,36 @@
             </div>
           </nav>
         </div>
+
         <div class="mx-auto lg:ml-80">
-          <h1>Order Details</h1>
-          <p><strong>Event:</strong> {{ order.ticket.event.name }}</p>
-          <p><strong>Ticket:</strong> {{ order.ticket.name }}</p>
-          <p><strong>Quantity:</strong> {{ order.quantity }}</p>
-          <p><strong>Total Price:</strong> {{ order.total_price }}</p>
-          <p><a href="{% url 'buy_ticket' ticket_id=order.ticket.id %}">Buy another ticket</a></p>
+          <h1 class="text-white text-5xl mb-24 mt-12 text-center">Your Order Details</h1>
+          <table class="table-auto w-full">
+            <thead class="bg-gray-900">
+              <tr class="text-gray-200 text-left"><th class="pl-28 py-8 font-normal">Ticket ID</th><th class="font-normal pr-8">Event</th><th class="font-normal pr-8">Ticket</th><th class="font-normal pr-8">Total Cost</th><th class="font-normal pr-8">Quantity</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-500">
+                <td class="py-5 mr-12 pl-10 text-center">
+                  {{order.ticket.id}}
+                  
+                </td>
+                <td class="px-4 text-white">{{order.ticket.event.name}}</td>
+                <td class="px-4 text-white"> {{order.ticket.name}}</td>
+               
+                  
+                
+                  <td class="px-4 text-white">${{order.total_price}}</td>
+               
+                <td class="px-4 text-white">{{order.quantity}}</td>
+               
+              </tr>
+            </tbody>
+          </table>
+         
+          
+          
         </div>
+      
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
