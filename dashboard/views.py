@@ -77,9 +77,3 @@ def order(request):
     orders = Order.objects.all()
     user = UserDetail.objects.get(username=request.user.username)
     return render(request, 'order.html', {'orders': orders, 'total_orders': user.total_orders})
-
-
-def settings(request):
-    user = UserDetail.objects.get(username=request.user.username)
-
-    return render(request, 'settings.html', {'total_orders': user.total_orders})
