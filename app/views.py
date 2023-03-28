@@ -61,6 +61,9 @@ def contactpage(request):
     return render(request, 'contact.html')
 def pricingpage(request):
     return render(request, 'pricing.html')
+
+def referencespage(request):
+    return render(request, 'references.html')
 def logoutpage(request):
     logout(request)
     return redirect('home')
